@@ -24,10 +24,12 @@ export default function MessageList({ messages, isLoading }: MessageListProps) {
 
       {isLoading && (
         <div className="flex justify-start">
-          <div className="bg-gray-100 rounded-lg p-4 max-w-3xl">
-            <div className="flex items-center space-x-2">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-              <span className="text-gray-600">Thinking...</span>
+          <div className="bg-white rounded-lg p-4 max-w-3xl shadow-md">
+            <div className="flex items-center space-x-3">
+              <div className="animate-pulse rounded-full bg-blue-200 h-3 w-3"></div>
+              <div className="animate-pulse rounded-full bg-blue-200 h-3 w-3 delay-150"></div>
+              <div className="animate-pulse rounded-full bg-blue-200 h-3 w-3 delay-300"></div>
+              <span className="text-gray-600 font-medium">Lexi is thinking...</span>
             </div>
           </div>
         </div>

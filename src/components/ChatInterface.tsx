@@ -14,13 +14,13 @@ const mockApi = async (): Promise<MockResponse> => {
 
   return {
     answer:
-      "Yes, under Section 166 of the Motor Vehicles Act, 1988, compensation can be claimed for motor vehicle accidents. The compensation amount depends on various factors including the age of the deceased, their income, and the circumstances of the accident.",
+      "Yes, under Section 166 of the Motor Vehicles Act, 1988, the claimants are entitled to an addition for future prospects even when the deceased was self-employed and aged 54–55 years at the time of the accident. In Dani Devi v. Pritam Singh, the Court held that 10% of the deceased’s annual income should be added as future prospects.",
     citations: [
       {
-        text: "The compensation amount is determined based on various factors, including the age of the deceased, their income, and the number of dependents. The court aims to provide a just and reasonable amount to the claimants.",
+        text: "as the age of the deceased at the time of accident was held to be about 54-55 years by the learned Tribunal, being self-employed, as such, 10% of annual income should have been awarded on account of future prospects.” (Para 7 of the document)",
         source: "Dani_Devi_v_Pritam_Singh.pdf",
         pdfUrl: "/example.pdf",
-        highlightText: "By way of present appeal, the appellants have questioned the",
+        highlightText: "as the age of the deceased at the time of accident was held to be about 54-55 years by the learned Tribunal, being self-employed, as such, 10% of annual income should have been awarded on account of future prospects.",
       },
     ],
   };

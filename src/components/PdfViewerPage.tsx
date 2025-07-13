@@ -18,33 +18,9 @@ export default function PdfViewerPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Header with file info and highlight info */}
-            <div className="bg-white shadow-sm border-b px-6 py-4">
-                <div className="max-w-7xl mx-auto">
-                    <h1 className="text-xl font-semibold text-gray-800 mb-2">PDF Viewer</h1>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-                        <span className="flex items-center gap-2">
-                            📄 <strong>File:</strong> {decodeURIComponent(file)}
-                        </span>
-                        {highlight ? (
-                            <span className="flex items-center gap-2">
-                                🔍 <strong>Highlighting:</strong>
-                                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">
-                                    "{highlight}"
-                                </span>
-                            </span>
-                        ) : (
-                            <span className="text-gray-500">
-                                ✨ Tip: You can highlight text by adding a `highlight` parameter to the URL.
-                            </span>
-                        )}
-                    </div>
-                </div>
-            </div>
-
+        <div className="h-screen w-screen bg-gray-100 flex flex-col">
             {/* PDF Viewer */}
-            <div className="flex items-center justify-center p-6">
+            <div className="flex-1 overflow-y-auto p-6">
                 <HighlightPdfViewer file={file} highlight={highlight} />
             </div>
         </div>
