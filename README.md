@@ -28,7 +28,11 @@ To run the project, follow these steps:
 
    This will start the application on `http://localhost:5173`.
 
-## Screenshot or Screen Recording
+## Screenshots
+
+| Chat Interface                                                                                         | Answer + Citations                                                                                   | PDF Viewer                                                                                     |
+| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| ![Initial](https://github.com/ankittripathi1/Lexisg-frontend-intern-test/blob/main/assets/initial.png) | ![Answer](https://github.com/ankittripathi1/Lexisg-frontend-intern-test/blob/main/assets/answer.png) | ![PDF](https://github.com/ankittripathi1/Lexisg-frontend-intern-test/blob/main/assets/pdf.png) |
 
 
 ## How Citation Linking was Handled
@@ -64,3 +68,11 @@ Here's a breakdown of the implementation:
 - In the `MessageBubble.tsx` component, the citations are rendered as links that, when clicked, open the PDF in a new tab with the cited text highlighted.
 - The `onClick` handler for the citation link calls the `openPdfInNewTab` function with the `pdfUrl` and `highlightText` from the citation object.
 - This opens the PDF in a new tab and highlights the cited text, providing a seamless user experience.
+
+## Known Limitation
+
+> 🔍 **Highlighting large blocks of text in the PDF is not always accurate.**
+
+While the highlighting feature works well for **shorter phrases**, it may **fail or behave inconsistently with longer paragraphs or multi-line text**. This is due to how text is tokenized and rendered by `react-pdf` and PDF parsing complexities (e.g. line breaks, font spacing, hidden characters).
+
+I'm currently exploring more robust solutions to improve this experience.
