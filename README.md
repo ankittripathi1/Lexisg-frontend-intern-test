@@ -11,7 +11,7 @@ To run the project, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ankittripathi1/Lexisg-frontend-intern-test.git
    ```
 
 2. **Install dependencies:**
