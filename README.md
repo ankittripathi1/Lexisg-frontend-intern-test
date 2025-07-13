@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+# LexisNexis Frontend Internship Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a solution for the Lexisg Frontend Internship Test. It is a React
+application built with React that allows users to interact with a chat interface
+and view source PDF documents with highlighted citations.
 
-Currently, two official plugins are available:
+## How to Run the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the project, follow these steps:
 
-## Expanding the ESLint configuration
+1. **Clone the repository:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   ```bash
+   git clone <repository-url>
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Install dependencies:**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Start the development server:**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   This will start the application on `http://localhost:5173`.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Screenshot or Screen Recording
+
+
+## How Citation Linking was Handled
+
+The citation linking is handled by a combination of frontend components and utility functions.
+Here's a breakdown of the implementation:
+
+**1. Chat Interface:**
+
+- The `ChatInterface.tsx` component manages the chat messages and the interaction with a mock API.
+- When the user sends a message, the mock API returns a response that includes an answer and an array of citations.
+- Each citation object contains the following information:
+  - `text`: The text of the citation.
+  - `source`: The name of the PDF document.
+  - `pdfUrl`: The URL of the PDF document.
+  - `highlightText`: The text to be highlighted in the PDF document.
+
+**2. PDF Viewer:**
+
+- The `HighlightPdfViewer.tsx` component is responsible for rendering the PDF document and highlighting the cited text.
+- It uses the `react-pdf` library to render the PDF and a custom highlighting implementation to find and highlight the exact text.
+- The `highlight` prop is passed to the component, which contains the text to be highlighted.
+- The component then uses a combination of exact and fuzzy matching to find the text in the PDF and wrap it in a `<mark>` tag.
+
+**3. Utility Functions:**
+
+- The `pdfUtils.ts` file contains utility functions for generating PDF viewer URLs and opening PDFs in a new tab.
+- The `generatePdfViewerUrl` function creates a URL with the `file` and `highlight` parameters, which are then used by the `HighlightPdfViewer.tsx` component to render the PDF and highlight the text.
+- The `openPdfInNewTab` function opens the PDF in a new tab with the highlighting parameters.
+
+**4. Citation Linking:**
+
+- In the `MessageBubble.tsx` component, the citations are rendered as links that, when clicked, open the PDF in a new tab with the cited text highlighted.
+- The `onClick` handler for the citation link calls the `openPdfInNewTab` function with the `pdfUrl` and `highlightText` from the citation object.
+- This opens the PDF in a new tab and highlights the cited text, providing a seamless user experience.
